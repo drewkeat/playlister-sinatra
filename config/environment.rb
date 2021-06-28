@@ -18,6 +18,6 @@ ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",
   :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
 )
-
+require_relative '../app/models/slugable'
 require_all 'app'
 require_all 'lib'
