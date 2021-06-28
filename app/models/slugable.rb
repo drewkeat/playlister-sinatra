@@ -1,7 +1,7 @@
 module Slugable
     module ClassMethods
         def find_by_slug(slug)
-            self.find_by(name: "#{slug.titleize}")
+            self.all.detect{|object| object.slug == slug} 
         end
     end
 

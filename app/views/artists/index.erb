@@ -1,0 +1,11 @@
+<h1>Available Artists</h1>
+<ul>
+    <%@artists.sort_by {|artist| artist.name}.each do |artist|%>
+        <li><a href="/artists/<%=artist.slug%>"><b><%=artist.name%></b></a></li>
+        <ul>
+            <%artist.songs.map do |song|%>
+            <li><a href="/songs/<%=song.slug%>"><em><%=song.name%></em></a></li>
+            <%end%>
+        </ul>
+    <%end%>
+</ul>

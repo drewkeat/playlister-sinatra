@@ -1,0 +1,17 @@
+<h1>Available Genres</h1>
+<ul>
+    <%@genres.sort_by {|genre| genre.name}.each do |genre|%>
+        <li><a href="/genres/<%=genre.slug%>"><%=genre.name%></a></li>
+        <ul>
+            <%genre.artists.map do |artist|%>
+                <li><a href="/artists/<%=artist.slug%>"><b><%=artist.name%></b></a>
+                    <ul>
+                        <%artist.songs.map do |song|%>
+                            <li><a href="/songs/<%=song.slug%>"><em><%=song.name%></em></a></li>
+                        <%end%>
+                    </ul>
+                </li>
+            <%end%>
+        </ul>
+    <%end%>
+</ul>
